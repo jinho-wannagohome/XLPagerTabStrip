@@ -346,6 +346,7 @@ open class ExampleBaseButtonBarPagerTabStripViewController: BaseButtonBarPagerTa
     open override func configure(cell: ButtonBarViewCell, for indicatorInfo: IndicatorInfo) {
         cell.label.text = indicatorInfo.title
         cell.accessibilityLabel = indicatorInfo.accessibilityLabel
+        cell.imageView.isHidden = indicatorInfo.image == nil
         if let image = indicatorInfo.image {
             cell.imageView.image = image
         }
