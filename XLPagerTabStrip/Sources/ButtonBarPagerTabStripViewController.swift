@@ -409,12 +409,7 @@ open class ButtonBarPagerTabStripViewController: PagerTabStripViewController, Pa
         } else {
             let stretchedCellWidthIfAllEqual = (collectionViewAvailableVisibleWidth - cellSpacingTotal) / CGFloat(numberOfCells)
             let generalMinimumCellWidth = calculateStretchedCellWidths(minimumCellWidths, suggestedStretchedCellWidth: stretchedCellWidthIfAllEqual, previousNumberOfLargeCells: 0)
-            var stretchedCellWidths = [CGFloat]()
-
-            for minimumCellWidthValue in minimumCellWidths {
-                let cellWidth = (minimumCellWidthValue > generalMinimumCellWidth) ? minimumCellWidthValue : generalMinimumCellWidth
-                stretchedCellWidths.append(cellWidth)
-            }
+            var stretchedCellWidths = [CGFloat](repeatElement(generalMinimumCellWidth, count: minimumCellWidths.count))
 
             return stretchedCellWidths
         }
